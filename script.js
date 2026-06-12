@@ -46,12 +46,27 @@ setTimeout(() => {
 }
 
 function sayYes() {
-    const stars =
-document.getElementById("stars");
 
-if(stars){
-    stars.remove();
-}
+    const stars =
+    document.getElementById("stars");
+
+    if(stars){
+        stars.remove();
+    }
+
+    const finalMusic =
+    document.getElementById("finalMusic");
+
+    finalMusic.volume = 0.7;
+
+    setTimeout(() => {
+
+        finalMusic.play().catch(err => {
+            console.log(err);
+        });
+
+    }, 1000);
+
     document.body.innerHTML = `
     <div style="
         height:100vh;
