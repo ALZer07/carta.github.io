@@ -18,7 +18,7 @@ function sayYes() {
         justify-content:center;
         align-items:center;
         text-align:center;
-        background:#0f0f14;
+        background:#472E5B;
         color:white;
         font-family:Georgia, serif;
     ">
