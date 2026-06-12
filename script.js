@@ -1,12 +1,48 @@
 let current = 0;
 const screens = document.querySelectorAll(".screen");
+let musicStarted = false;
 
 function nextScreen() {
+
+    if (!musicStarted) {
+
+        const music = document.getElementById("bgMusic");
+
+        music.volume = 0;
+
+        music.play().catch(err => {
+            console.log(err);
+        });
+
+        let vol = 0;
+
+        const fade = setInterval(() => {
+
+            vol += 0.02;
+
+            if (vol >= 0.25) {
+                vol = 0.25;
+                clearInterval(fade);
+            }
+
+            music.volume = vol;
+
+        }, 100);
+
+        musicStarted = true;
+    }
+
     if (current >= screens.length - 1) return;
 
-    screens[current].classList.remove("active");
+screens[current].classList.remove("active");
+
+setTimeout(() => {
+
     current++;
+
     screens[current].classList.add("active");
+
+}, 1200);
 }
 
 function sayYes() {
