@@ -76,3 +76,32 @@ button{
         transform:translateY(110vh);
     }
 }
+
+#stars{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    overflow:hidden;
+    z-index:0;
+}
+
+.star{
+    position:absolute;
+    width:4px;
+    height:4px;
+    background:white;
+    image-rendering:pixelated;
+    opacity:0.8;
+    animation:fallStar linear forwards;
+}
+
+@keyframes fallStar{
+
+    from{
+        transform:translateY(-10px);
+    }
+
+    to{
+        transform:translateY(110vh);
+    }
+}
