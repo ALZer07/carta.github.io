@@ -68,59 +68,68 @@ function sayYes() {
     }, 1000);
 
     document.body.innerHTML = `
+    <div id="finalScreen" style="
+        height:100vh;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+        align-items:center;
+        text-align:center;
+        background:#472E5B;
+        color:white;
+        font-family:Georgia, serif;
+    ">
+
+        <h1>❤️</h1>
+        <h1>Entonces oficialmente...</h1>
+        <h1>Ya eres mi novia ❤️</h1>
+
+        <button
+            id="waitButton"
+            onclick="showPlaylist()"
+            style="
+                display:none;
+                margin-top:30px;
+                padding:12px 24px;
+                border:none;
+                border-radius:999px;
+                cursor:pointer;
+                font-size:1rem;
+            ">
+            ¡Espera! ✨
+        </button>
+
+    </div>
+    `;
+
     setTimeout(() => {
 
-    const btn =
-    document.getElementById("waitButton");
+        const btn =
+        document.getElementById("waitButton");
 
-    if(btn){
-        btn.style.display = "block";
-btn.animate(
-    [
-        { opacity: 0, transform: "translateY(20px)" },
-        { opacity: 1, transform: "translateY(0px)" }
-    ],
-    {
-        duration: 800,
-        fill: "forwards"
-    }
-);
-    }
+        if(btn){
 
-}, 5000);
-<div id="finalScreen" style="
-    height:100vh;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    text-align:center;
-    background:#472E5B;
-    color:white;
-    font-family:Georgia, serif;
-">
+            btn.style.display = "block";
 
-    <h1>❤️</h1>
-    <h1>Entonces oficialmente...</h1>
-    <h1>Ya eres mi novia ❤️</h1>
+            btn.animate(
+                [
+                    {
+                        opacity:0,
+                        transform:"translateY(20px)"
+                    },
+                    {
+                        opacity:1,
+                        transform:"translateY(0px)"
+                    }
+                ],
+                {
+                    duration:800,
+                    fill:"forwards"
+                }
+            );
+        }
 
-    <button
-        id="waitButton"
-        onclick="showPlaylist()"
-        style="
-            display:none;
-            margin-top:30px;
-            padding:12px 24px;
-            border:none;
-            border-radius:999px;
-            cursor:pointer;
-            font-size:1rem;
-        ">
-        ¡Espera! ✨
-    </button>
-
-</div>
-`;
+    }, 5000);
 
     setInterval(createHeart, 250);
 }
