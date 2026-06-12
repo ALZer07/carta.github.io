@@ -89,12 +89,51 @@ button{
 
 .star{
     position:absolute;
-    width:4px;
-    height:4px;
-    background:white;
-    image-rendering:pixelated;
-    opacity:0.8;
+    width:12px;
+    height:12px;
+
+    opacity:0.85;
+
     animation:fallStar linear forwards;
+
+    background:
+        transparent;
+}
+
+.star::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:4px;
+    top:0;
+
+    width:4px;
+    height:12px;
+
+    background:white;
+}
+
+.star::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    top:4px;
+
+    width:12px;
+    height:4px;
+
+    background:white;
+}
+
+.star{
+    animation:
+        fallStar linear forwards,
+        twinkle 2s ease-in-out infinite;
 }
 
 @keyframes fallStar{
@@ -105,5 +144,20 @@ button{
 
     to{
         transform:translateY(110vh);
+    }
+}
+
+@keyframes twinkle{
+
+    0%{
+        opacity:0.3;
+    }
+
+    50%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0.3;
     }
 }
