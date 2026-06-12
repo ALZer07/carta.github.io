@@ -46,6 +46,12 @@ setTimeout(() => {
 }
 
 function sayYes() {
+    const stars =
+document.getElementById("stars");
+
+if(stars){
+    stars.remove();
+}
     document.body.innerHTML = `
     <div style="
         height:100vh;
@@ -88,3 +94,42 @@ function createHeart() {
         heart.remove();
     }, 4000);
 }
+
+function createStar(){
+
+    const starsContainer =
+    document.getElementById("stars");
+
+    if(!starsContainer) return;
+
+    const star =
+    document.createElement("div");
+
+    star.classList.add("star");
+
+    star.style.left =
+    Math.random() * 100 + "vw";
+
+    const size =
+    Math.floor(Math.random() * 3) + 2;
+
+    star.style.width =
+    size + "px";
+
+    star.style.height =
+    size + "px";
+
+    const duration =
+    Math.random() * 8 + 10;
+
+    star.style.animationDuration =
+    duration + "s";
+
+    starsContainer.appendChild(star);
+
+    setTimeout(() => {
+        star.remove();
+    }, duration * 1000);
+}
+
+setInterval(createStar, 250);
