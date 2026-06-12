@@ -68,22 +68,59 @@ function sayYes() {
     }, 1000);
 
     document.body.innerHTML = `
-    <div style="
-        height:100vh;
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        text-align:center;
-        background:#472E5B;
-        color:white;
-        font-family:Georgia, serif;
-    ">
-        <h1>❤️</h1>
-        <h1>Entonces oficialmente...</h1>
-        <h1>Comienza nuestra historia como novios ❤️</h1>
-    </div>
-    `;
+    setTimeout(() => {
+
+    const btn =
+    document.getElementById("waitButton");
+
+    if(btn){
+        btn.style.display = "block";
+btn.animate(
+    [
+        { opacity: 0, transform: "translateY(20px)" },
+        { opacity: 1, transform: "translateY(0px)" }
+    ],
+    {
+        duration: 800,
+        fill: "forwards"
+    }
+);
+    }
+
+}, 5000);
+<div id="finalScreen" style="
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#472E5B;
+    color:white;
+    font-family:Georgia, serif;
+">
+
+    <h1>❤️</h1>
+    <h1>Entonces oficialmente...</h1>
+    <h1>Ya eres mi novia ❤️</h1>
+
+    <button
+        id="waitButton"
+        onclick="showPlaylist()"
+        style="
+            display:none;
+            margin-top:30px;
+            padding:12px 24px;
+            border:none;
+            border-radius:999px;
+            cursor:pointer;
+            font-size:1rem;
+        ">
+        ¡Espera! ✨
+    </button>
+
+</div>
+`;
 
     setInterval(createHeart, 250);
 }
@@ -148,3 +185,51 @@ function createStar(){
 }
 
 setInterval(createStar, 250);
+
+function showPlaylist(){
+
+    document.body.innerHTML = `
+
+    <div style="
+        min-height:100vh;
+        padding:40px;
+        box-sizing:border-box;
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+
+        background:#472E5B;
+        color:white;
+        text-align:center;
+        font-family:Georgia, serif;
+    ">
+
+        <h1>❤️</h1>
+
+        <h2>También preparé esto para ti:</h2>
+
+        <div style="
+            width:100%;
+            max-width:700px;
+            margin-top:20px;
+        ">
+
+            <iframe
+                data-testid="embed-iframe"
+                style="border-radius:12px"
+                src="https://open.spotify.com/embed/playlist/54Ce0ftlO8Hx2jUpgNgNSC?utm_source=generator"
+                width="100%"
+                height="352"
+                frameborder="0"
+                allowfullscreen=""
+                allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+    </div>
+    `;
+}
