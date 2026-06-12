@@ -1,55 +1,54 @@
 let current = 0;
+const screens = document.querySelectorAll(".screen");
 
-const screens =
-document.querySelectorAll(".screen");
-
-function nextScreen(){
+function nextScreen() {
+    if (current >= screens.length - 1) return;
 
     screens[current].classList.remove("active");
-
     current++;
-
-    if(current < screens.length){
-        screens[current].classList.add("active");
-    }
+    screens[current].classList.add("active");
 }
 
-function sayYes(){
-
+function sayYes() {
     document.body.innerHTML = `
-        <div style="
+    <div style="
         height:100vh;
         display:flex;
         flex-direction:column;
         justify-content:center;
         align-items:center;
         text-align:center;
-        color:white;
         background:#0f0f14;
-        ">
-            <h1>❤️</h1>
-            <h1>Entonces oficialmente...</h1>
-            <h1>Ya eres mi novia ❤️</h1>
-        </div>
+        color:white;
+        font-family:Georgia, serif;
+    ">
+        <h1>❤️</h1>
+        <h1>Entonces oficialmente...</h1>
+        <h1>Ya eres mi novia ❤️</h1>
+    </div>
     `;
 
-    setInterval(createHeart,250);
+    setInterval(createHeart, 250);
 }
 
-function createHeart(){
+function createHeart() {
+    const heart = document.createElement("div");
 
-    const heart =
-    document.createElement("div");
-
-    heart.classList.add("heart");
-    heart.innerHTML="❤️";
-
-    heart.style.left =
-    Math.random()*100+"vw";
+    heart.innerHTML = "❤️";
+    heart.style.position = "fixed";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.top = "-50px";
+    heart.style.fontSize = "25px";
+    heart.style.zIndex = "9999";
+    heart.style.transition = "transform 4s linear";
 
     document.body.appendChild(heart);
 
-    setTimeout(()=>{
+    setTimeout(() => {
+        heart.style.transform = "translateY(110vh)";
+    }, 10);
+
+    setTimeout(() => {
         heart.remove();
-    },4000);
+    }, 4000);
 }
