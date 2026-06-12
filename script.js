@@ -82,7 +82,7 @@ function sayYes() {
 
         <h1>❤️</h1>
         <h1>Entonces oficialmente...</h1>
-        <h1>Ya eres mi novia ❤️</h1>
+        <h1>Comienza nuestra historia de novios ❤️</h1>
 
         <button
             id="waitButton"
